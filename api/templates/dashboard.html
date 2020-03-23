@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>4Max - BeepTunes Dashboard</title>
+ </head>
+ <body>
+    <nav class="navbar navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">4Max</span>
+    </nav>
+
+    <!-- Tabs -->
+    <section id="tabs" class="mt-3">
+      <div class="container">
+        <h6 class="section-title h3">Endpoints</h6>
+        <div class="row mt-4">
+          <div class="col-12">
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-recommend-tab" data-toggle="tab" href="#nav-recommend" role="tab" aria-controls="nav-recommend" aria-selected="true">Recommend Tracks!</a>
+                <a class="nav-item nav-link" id="nav-similars-tab" data-toggle="tab" href="#nav-similars" role="tab" aria-controls="nav-similars" aria-selected="false">Find Similars!</a>
+                <a class="nav-item nav-link" id="nav-add-action-tab" data-toggle="tab" href="#nav-add-action" role="tab" aria-controls="nav-add-action" aria-selected="false">Add Action</a>
+                <a class="nav-item nav-link" id="nav-add-track-tab" data-toggle="tab" href="#nav-add-track" role="tab" aria-controls="nav-add-track" aria-selected="false">Add Track</a>
+              </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
+              <div class="tab-pane fade show active" id="nav-recommend" role="tabpanel" aria-labelledby="nav-recommend-tab">
+                <div class="alert alert-info" role="alert">
+                  You can sent us some User ID and we'll find him/her 10 tracks that we think he/she would like!
+                </div>
+                <form class="my-4" id="recommend_with_user_id">
+                  <div class="form-group row">
+                    <label for="recommend_user_id" class="col-sm-2 col-form-label">User ID</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="recommend_user_id_input" placeholder="Please enter User ID here">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary">Send Recommendations</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron">
+                  <h1 class="h3">Export:</h1>
+                  <hr class="my-4">
+                  <div class="table-responsive">
+                      <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Key</th>
+                          <th scope="col">Value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Reponse</th>
+                          <td id="recommendation_response"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Recommended Tracks</th>
+                          <td id="recommendation_tracks"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Used Technique</th>
+                          <td id="recommendation_technique"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-similars" role="tabpanel" aria-labelledby="nav-similars-tab">
+                <div class="alert alert-info" role="alert">
+                  Sent us some Track ID and we'll find the most similar tracks to it!
+                </div>
+                <form class="my-4" id="find_similar_track_with_id">
+                  <div class="form-group row">
+                    <label for="recommend_user_id" class="col-sm-2 col-form-label">Track ID</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="find_similar_track_with_id_input" placeholder="Please enter Track ID here">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary">Find Similars</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron">
+                  <h1 class="h3">Export:</h1>
+                  <hr class="my-4">
+                  <div class="table-responsive">
+                      <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Key</th>
+                          <th scope="col">Value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Reponse</th>
+                          <td id="similar_response"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Recommended Tracks</th>
+                          <td id="similar_tracks"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Used Technique</th>
+                          <td id="similar_technique"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                    
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-add-action" role="tabpanel" aria-labelledby="nav-add-action-tab">
+                <div class="alert alert-info" role="alert">
+                  You can add a new action occured by user!
+                </div>
+                <div class="alert alert-warning" role="alert">
+                  - Please use one of these 3 options as action: Like, Download, Purchase <br>
+                  - Please enter date like: 2011-11-05 18:11:20
+                </div>
+                <form class="my-4" id="add_action_form">
+                  <div class="form-group row">
+                    <div class="col">
+                      <input type="text" id="action_user_id" class="form-control" placeholder="User ID">
+                    </div>
+                    <div class="col">
+                      <input type="text" id="action_track_id" class="form-control" placeholder="Track ID">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col">
+                      <select class="form-control" id="selectCmp">
+                        <option selected>Choose an Action:</option>
+                        <option value="LIKED">Like</option>
+                        <option value="DOWNLOAD">Download</option>
+                        <option value="PURCHASE">Purchase</option>
+                      </select>
+                    </div>  
+                  </div>
+                  <div class="form-group row">
+                    <div class="col">
+                      <input type="text" class="form-control" id="action_publish_date" placeholder="Publish Date">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" id="action_creation_date" placeholder="Creation Date">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary">Add Action</button>
+                    </div>
+                  </div>
+                </form>
+
+                <div class="jumbotron">
+                  <h1 class="h3">Export:</h1>
+                  <hr class="my-4">
+                  <samp id="add_action_export"></samp>
+                </div>
+
+              </div>
+
+              <div class="tab-pane fade" id="nav-add-track" role="tabpanel" aria-labelledby="nav-add-track-tab">
+
+                <form class="my-4" id="add_track_form">
+                  <div class="form-group row">
+                    <div class="col">
+                      <input type="text" id="add_track_track_id" class="form-control" placeholder="Track ID">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col">
+                      <input type="text" id="add_track_tag_ids" class="form-control" placeholder='Tag IDs e.g: ["379950840","379950841"]'>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col">
+                      <input type="text" id="add_track_type_keys" class="form-control" placeholder='Type Keys e.g: ["CURATION","GENRE","ORCHESTRATION"]'>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary">Add Track</button>
+                    </div>
+                  </div>
+                </form>
+
+                <div class="jumbotron">
+                  <h1 class="h3">Export:</h1>
+                  <hr class="my-4">
+                  <samp id="add_track_export"></samp>
+                </div>
+
+              </div>
+              </div>
+              
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $("#recommend_with_user_id").on('submit', function (e) {
+      e.preventDefault();
+      const user_id = $('#recommend_user_id_input').val();
+      $.ajax({
+        url: "YOUR_URL/user/" + user_id + "/recommend",
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            console.log(JSON.stringify(res));
+            document.getElementById('recommendation_tracks').innerHTML = JSON.stringify(res.recommended_tracks);
+            document.getElementById('recommendation_response').innerHTML = JSON.stringify(res.response);
+            document.getElementById('recommendation_technique').innerHTML = JSON.stringify(res.used_technique);
+        }
+      });
+
+    });
+
+    $("#find_similar_track_with_id").on('submit', function (e) {
+      e.preventDefault();
+      const track_id = $('#find_similar_track_with_id_input').val();
+      $.ajax({
+        url: "YOUR_URL/track/" + track_id + "/similars",
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            console.log(res);
+            document.getElementById('similar_tracks').innerHTML = JSON.stringify(res.similar_tracks);
+            document.getElementById('similar_response').innerHTML = JSON.stringify(res.response);
+            document.getElementById('similar_technique').innerHTML = JSON.stringify(res.used_technique);
+        }
+      });
+
+    });
+ 
+    $("#add_action_form").on('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('add_action_export').innerHTML = "";
+      const track_id = $('#action_track_id').val();
+      const user_id = $('#action_user_id').val();
+      const user_action = $('#selectCmp option:selected').val()
+      const publish_date = $('#action_publish_date').val();
+      const creation_date = $('#action_creation_date').val();
+
+      var data = {
+        "USER_ID": user_id,
+        "TRACK_ID":track_id,
+        "C_DATE":creation_date,
+        "PUBLISH_DATE":publish_date,
+        "ACTION":user_action
+      };
+
+      $.ajax({
+        url: "YOUR_URL/action/",
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        data: {json:JSON.stringify(data)},
+        success: function(res) {
+            console.log(res);
+            document.getElementById('add_action_export').innerHTML = JSON.stringify(res);
+        }
+      });
+
+    });
+
+    $("#add_track_form").on('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('add_track_export').innerHTML = "";
+      const track_id = $('#add_track_track_id').val();
+      const tag_ids = $('#add_track_tag_ids').val();
+      const type_keys = $('#add_track_type_keys').val()
+
+      var data = {
+        "TRACK_ID":track_id,
+        "TAG_IDS":tag_ids,
+        "TYPE_KEYS":type_keys,
+      };
+
+      $.ajax({
+        url: "YOUR_URL/track/",
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        data: {json:JSON.stringify(data)},
+        success: function(res) {
+            console.log(res);
+            document.getElementById('add_track_export').innerHTML = JSON.stringify(res);
+        }
+      });
+
+    });
+
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ </body>
+ </html>
