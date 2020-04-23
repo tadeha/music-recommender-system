@@ -29,7 +29,9 @@ df1=df[df.index<40000]
 df2=df.loc[(df.index >= 40000) & (df.index <80000)]
 df3=df[df.index>=80000]
 
+
 results = {}
+
 
 dff=df1
 cosine_sim=cosine_similarities11
