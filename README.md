@@ -59,8 +59,8 @@ Runing the model by executing the crontab_job.sh file on the colaborative-filter
 ### Content Based:
 
 Run the model by inputting a such CSV file as you can find one on dataset folder at the begining of the code.
-You can find a sample CSV file on the dataset path ("dataset/ContentBasedInputData.xlsx").\
-You can check your result with the sample result file on the dataset path. ("dataset/contentBasedResult.xlsx")
+You can find a sample CSV file on the dataset path (dataset/ContentBasedInputData.xlsx).\
+You can check your result with the sample result file on the dataset path. (dataset/contentBasedResult.xlsx)
 
 ## Dashboard
 
