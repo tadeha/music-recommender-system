@@ -1,5 +1,5 @@
 # Music Recommender System
-## Description:
+## Description
 
 In this project, we build a music recommender system model to predict a playlist for each user of the BeepTunes dataset according to their taste and collection of track info.
 BeepTunes is the largest digital music store in Iran.
@@ -46,7 +46,7 @@ We put some samples of our dataset on the "dataset" path in this repository. You
 https://www.slideshare.net/TadehAlexani/beeptunes-music-recommender-system
 
 
-## Instructions to run the code:
+## Instructions to run the code
 
 ### Collabrative Filtering:
 
