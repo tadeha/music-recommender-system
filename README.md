@@ -60,7 +60,6 @@ You can check your result with the sample result file on the dataset path. ("dat
 
 ## Dashboard
 
-![dashboard-screenshot-2](https://user-images.githubusercontent.com/22890731/80225073-d57d5f80-865f-11ea-9445-7fb90b9ea6b9.png)
 ![dashboard-screenshot-1](https://user-images.githubusercontent.com/22890731/80225079-d7dfb980-865f-11ea-9026-4dff309cda27.png)
 
 When you implement API on your server and run the code using the above instruction you can access a dashboard like one below:
