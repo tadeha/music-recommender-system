@@ -6,10 +6,6 @@ BeepTunes is the largest digital music store in Iran.
 
 ## Project approach
 
-We propose following algorithms for our task1. Popularity based
-The most trivial recommendation algorithm is to simply present each song
-in descending order of its popularity skipping those songs already consumed by the user, regardless of the user’s taste profile.
-
 ### 1. Popularity based
 
 The most trivial recommendation algorithm is to simply present each song
