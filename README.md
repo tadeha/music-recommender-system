@@ -4,6 +4,8 @@
 In this project, we build a music recommender system model to predict a playlist for each user of the BeepTunes dataset according to their taste and collection of track info.
 BeepTunes is the largest digital music store in Iran.
 
+[Read the Project Summary](https://docs.google.com/document/d/1gDs3RHvkcP1uR9nIS_iMUUIzoI58l7hfMe_bCJsr58U/edit?usp=sharing)
+
 ## Project approach
 
 ### 1. Popularity based
@@ -42,8 +44,7 @@ Please install the following tools:\
 
 ## Dataset
 
-We put some samples of our dataset on the "dataset" path in this repository. You can check more information about the data preprocessing phase in our presentation:\
-https://www.slideshare.net/TadehAlexani/beeptunes-music-recommender-system
+We put some samples of our dataset on the "dataset" path in this repository. You can check more information about the data preprocessing phase [in our presentation](https://www.slideshare.net/TadehAlexani/beeptunes-music-recommender-system).
 
 
 ## Instructions to run the code
